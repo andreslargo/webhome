@@ -1,42 +1,30 @@
 import { Injectable } from '@angular/core';
+import Data from '../models/data';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FormControlService {
 
+  Data: Data[] = [
+    {
+      options: ['Andres', 'Largo'], 
+      checkBox: true, 
+      date: new Date("2019-01-16"), 
+      textArea: 'Soy muy prooooooooo', 
+      radioButton: '1', 
+      selectedOption: 'audi', 
+      slider: 60, 
+      checkbox2: true, 
+      input: 'Hola muundo'
+    }
+  ];
+  
   constructor() { }
 
-  matAutoComplete(){
-    return ['Andrés', 'Felipe', 'Largo', 'Rodriguez'];
+  info(){
+    return this.Data;
   }
 
-  checkBox(){
-    return true;
-  }
-
-  date(){
-    return new Date();
-  }
-
-  textArea(){
-    return "Lorem Ipsum dolor amit sir";
-  }
-
-  radioButton(){
-    return '1';
-  }
-
-  selectedOption(){
-    return 'audi';
-  }
-
-  slider(){
-    return 50;
-  }
-
-  check2(){
-    return true;
-  }
 }
 

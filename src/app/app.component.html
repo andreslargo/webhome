@@ -3,13 +3,13 @@
   <mat-form-field class="">
     <input type="text" placeholder="Selecciona una opción" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
     <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+      <mat-option *ngFor="let option of req[0].options"  [value]="option">
         {{option}}
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
   <br/>
-  <mat-checkbox [(ngModel)]="checked" name = "checkbox">Registrado!</mat-checkbox>  
+  <mat-checkbox [(ngModel)]="req[0].checkBox" name = "checked">Registrado!</mat-checkbox>  
   <br/>
   <mat-form-field>
     <input matInput [matDatepicker]="picker1" placeholder="Fecha" [formControl]="date">
@@ -18,21 +18,21 @@
   </mat-form-field>
   <br/>
   <mat-form-field>
-    <input matInput placeholder="Input"  [(ngModel)] = "text" name = "text">
+    <input matInput placeholder="Input"  [(ngModel)] = "req[0].input" name = "input">
   </mat-form-field>
   <br/>
   <mat-form-field>
-    <textarea matInput placeholder="FormField" [(ngModel)] = "text" name = "text"></textarea>
+    <textarea matInput placeholder="FormField" [(ngModel)] = "req[0].textArea" name = "text"></textarea>
   </mat-form-field>
   <br/>
-  <mat-radio-group aria-label="Select an option" [(ngModel)]="favoriteSeason" name = "favoriteSeason">
+  <mat-radio-group aria-label="Select an option" [(ngModel)]="req[0].radioButton" name = "favoriteSeason">
     <mat-radio-button value="1">Option 1</mat-radio-button> <br/>
     <mat-radio-button value="2">Option 2</mat-radio-button>
   </mat-radio-group>
   <br/>
   <mat-form-field>
     <mat-label>Cars</mat-label>
-    <select matNativeControl [(ngModel)] = "selectedOption" name = "selectedOption">
+    <select matNativeControl [(ngModel)] = "req[0].selectedOption" name = "selectedOption">
       <option value="volvo">Volvo</option>
       <option value="saab">Saab</option>
       <option value="mercedes">Mercedes</option>
@@ -40,11 +40,11 @@
     </select>
   </mat-form-field>
   <br/>
-  <mat-slider [(ngModel)] = 'value' name = 'value'></mat-slider>
+  <mat-slider [(ngModel)] = "req[0].slider" name = 'value'></mat-slider>
   <br/>
   <mat-slide-toggle
   class="example-margin"
-  [checked]="checked2"
+  [checked]="req[0].checkbox2"
   >
   Deslizaa!
 </mat-slide-toggle>
